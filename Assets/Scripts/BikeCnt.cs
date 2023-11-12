@@ -11,6 +11,7 @@ public class BikeCnt : MonoBehaviour
     private AudioClip m_AudioClip;
     private int m_LastAudioPos;
     private float m_AudioLevel;
+    Rigidbody rb;
     
     [SerializeField, Range(10, 100)] private float m_AmpGain = 10;
 
@@ -27,6 +28,8 @@ public class BikeCnt : MonoBehaviour
         }
         Debug.Log($"=== Device Set: {targetDevice} ===");
         m_AudioClip = Microphone.Start(targetDevice, true, 10, 48000);
+
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -37,14 +40,13 @@ public class BikeCnt : MonoBehaviour
         m_AudioLevel = waveData.Average(Mathf.Abs);
         Debug.Log(m_AudioLevel);
 
-        bike.transform.position += new Vector3(1, 0, 0);
-        /**
+        //bike.transform.position += new Vector3(1, 0, 0);
+        
+        
         if (m_AudioLevel > moveAudioLevel)
         {
             bike.transform.position += new Vector3(-(m_AmpGain * m_AudioLevel), 0, 0);
         }
-        **/
-
     }
 
     private float[] GetUpdatedAudio()
