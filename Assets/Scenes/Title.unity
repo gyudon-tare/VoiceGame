@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826099bb046dfad48b426382dbf5a16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 5fa9fb5a52282924c8fb2a8a733aa79d, type: 3}
   volumeType: 0
 --- !u!114 &137931881
 MonoBehaviour:
@@ -458,6 +459,7 @@ GameObject:
   - component: {fileID: 231523530}
   - component: {fileID: 231523532}
   - component: {fileID: 231523531}
+  - component: {fileID: 231523533}
   m_Layer: 5
   m_Name: SE
   m_TagString: Untagged
@@ -500,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826099bb046dfad48b426382dbf5a16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 5fa9fb5a52282924c8fb2a8a733aa79d, type: 3}
   volumeType: 2
 --- !u!114 &231523532
 MonoBehaviour:
@@ -564,6 +567,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &231523533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231523529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 231523531}
+          m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+          m_MethodName: SeCheck
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &258043663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,6 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82df7b0b86deb574b858f3b038d5516e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 8300000, guid: 5fa9fb5a52282924c8fb2a8a733aa79d, type: 3}
   panel: {fileID: 320789122}
 --- !u!1 &950586043
 GameObject:
@@ -1991,6 +2024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826099bb046dfad48b426382dbf5a16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 5fa9fb5a52282924c8fb2a8a733aa79d, type: 3}
   volumeType: 1
 --- !u!114 &950586046
 MonoBehaviour:
@@ -2055,6 +2089,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1266055893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266055895}
+  - component: {fileID: 1266055894}
+  m_Layer: 0
+  m_Name: BGMManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266055894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266055893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba9a63987162a74c801f90da1a3d66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgm: {fileID: 8300000, guid: e91254201a04856408293a5873d8e461, type: 3}
+--- !u!4 &1266055895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266055893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 162.37978, y: 27.370535, z: -1.2130737}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331496399
 GameObject:
   m_ObjectHideFlags: 0
