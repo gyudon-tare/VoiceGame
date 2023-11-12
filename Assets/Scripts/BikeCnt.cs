@@ -8,6 +8,10 @@ public class BikeCnt : MonoBehaviour
     [SerializeField] private GameObject bike;
     [SerializeField] private string m_DeviceName;
     [SerializeField] private float moveAudioLevel = 0.02f;
+    [SerializeField] private float moveSpeed = 10.0f;
+    [SerializeField] private GameObject camera;
+    public GameObject[] bike_parts = new GameObject[5];
+
     private AudioClip m_AudioClip;
     private int m_LastAudioPos;
     private float m_AudioLevel;
@@ -34,19 +38,31 @@ public class BikeCnt : MonoBehaviour
 
     void Update()
     {
+        Transform myTransform = bike.transform;
+        // ƒ[ƒJƒ‹À•WŠî€‚ÅAŒ»Ý‚Ì‰ñ“]—Ê‚Ö‰ÁŽZ‚·‚é
+        foreach (GameObject parts in bike_parts)
+        {
+            //parts.transform.Rotate(0, camera.transform.localEulerAngles.y, 0);
+        }
+        //myTransform.Rotate(0, camera.transform.localEulerAngles.y, 0);
+        //camera.transform.Rotate(0, -(camera.transform.localEulerAngles.y), 0);
+
+
+
         float[] waveData = GetUpdatedAudio();
         if (waveData.Length == 0) return;
 
         m_AudioLevel = waveData.Average(Mathf.Abs);
-        Debug.Log(m_AudioLevel);
-
-        //bike.transform.position += new Vector3(1, 0, 0);
-        
         
         if (m_AudioLevel > moveAudioLevel)
         {
-            bike.transform.position += new Vector3(-(m_AmpGain * m_AudioLevel), 0, 0);
+            Debug.Log(Vector3.right);
+            //Debug.Log(Vector3.left);
+            rb.AddForce(transform.right * m_AmpGain * m_AudioLevel * moveSpeed, ForceMode.Force);
+            //bike.transform.position += new Vector3(-(m_AmpGain * m_AudioLevel), 0, 0);
         }
+
+
     }
 
     private float[] GetUpdatedAudio()
