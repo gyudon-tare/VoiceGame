@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     AudioSource bgmAudioSource;
     [SerializeField]
     AudioSource seAudioSource;
+    public static AudioManager instance;
 
     public float Volume
     {
@@ -46,23 +47,26 @@ public class AudioManager : MonoBehaviour
             seAudioSource.volume = Mathf.Clamp01(value) * audioSource.volume;
         }
     }
+    void Awake()
+    {
+        CheckInstance();
+    }
 
     void Start()
     {
-        GameObject soundManager = CheckOtherSoundManager();
-        bool checkResult = soundManager != null && soundManager != gameObject;
-
-        if (checkResult)
-        {
-            Destroy(gameObject);
-        }
-
         DontDestroyOnLoad(gameObject);
     }
 
-    GameObject CheckOtherSoundManager()
+    void CheckInstance()
     {
-        return GameObject.FindGameObjectWithTag("SoundManager");
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void PlayBgm(AudioClip clip)
