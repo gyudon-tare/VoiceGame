@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  ClearText: {fileID: 0}
+  ClearText: {fileID: 1511084693}
 --- !u!1 &1887152918
 GameObject:
   m_ObjectHideFlags: 0

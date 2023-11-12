@@ -11,8 +11,14 @@ public class TimeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ClearText = GetComponentInChildren<Text>();
         time = 0.0f;
+        StartCoroutine(DelayCoroutine());
+    }
+
+    private IEnumerator DelayCoroutine()
+    {
+        yield return new WaitForSeconds(3);
+        Update();
     }
 
     // Update is called once per frame
